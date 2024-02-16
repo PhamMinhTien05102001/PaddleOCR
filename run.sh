@@ -1,0 +1,1 @@
+python tools/infer/predict_det.py --image_dir="./test_img/1.jpg" --det_model_dir="./my_models" --use_gpu=False

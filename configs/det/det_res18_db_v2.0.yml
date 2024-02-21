@@ -2,7 +2,7 @@ Global:
   use_gpu: true
   epoch_num: 1200
   log_smooth_window: 20
-  print_batch_step: 2
+  print_batch_step: 10
   save_model_dir: ./output/ch_db_res18/
   save_epoch_step: 1200
   # evaluation is run every 5000 iterations after the 4000th iteration
@@ -112,7 +112,7 @@ Eval:
     name: SimpleDataSet
     data_dir: ./train_data_so_do
     label_file_list:
-      - ./train_data_so_do/train_label.txt
+      - ./train_data_so_do/test_label.txt
     transforms:
       - DecodeImage: # load image
           img_mode: BGR

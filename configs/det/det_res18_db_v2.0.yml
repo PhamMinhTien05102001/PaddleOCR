@@ -86,7 +86,7 @@ Train:
               }
             - { "type": AddToSaturation, "args": { "value": [-50, 50] } }
       - EastRandomCropData:
-          size: [960, 960]
+          size: [640, 640]
           max_tries: 50
           keep_ratio: true
       - MakeBorderMap:

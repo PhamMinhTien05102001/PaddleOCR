@@ -123,6 +123,9 @@ Eval:
     label_file_list:
       - ./train_data_so_do/test_label.txt
     transforms:
+      - DetResizeForTest:
+          limit_side_len: 960
+          limit_type: max
       - DecodeImage: # load image
           img_mode: BGR
           channel_first: False

@@ -29,7 +29,7 @@ import io
 def gen_det_label(root_path, input_dir, out_label):
     with io.open(out_label, 'w', encoding='utf-8') as out_file:
         for label_file in os.listdir(input_dir):
-            img_path = os.path.join(root_path, "im" + label_file[3:-4].zfill(4) + ".jpg")
+            img_path = os.path.join(root_path, label_file[3:-4] + ".png")
             label = []
             with open(
                     os.path.join(input_dir, label_file), 'r',

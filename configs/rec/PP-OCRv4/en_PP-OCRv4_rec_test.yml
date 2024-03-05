@@ -11,16 +11,15 @@ Global:
     - 2000
   cal_metric_during_train: true
   pretrained_model:
-  checkpoints: null
   save_inference_dir: null
   use_visualdl: false
   infer_img:
   character_dict_path: ppocr/utils/dict/vi_dict.txt
-  max_text_length: 25
+  max_text_length: 60
   infer_mode: false
   use_space_char: true
   distributed: true
-  save_res_path: ./output/rec/predicts_ppocrv3.txt
+  save_res_path:
 Optimizer:
   name: Adam
   beta1: 0.9
@@ -80,15 +79,7 @@ Train:
       - DecodeImage:
           img_mode: BGR
           channel_first: false
-      - RecConAug:
-          prob: 0.5
-          ext_data_num: 2
-          image_shape:
-            - 48
-            - 720
-            - 3
-          max_text_length: 25
-      - RecAug: null
+      # - RecAug: null
       - MultiLabelEncode:
           gtc_encode: NRTRLabelEncode
       - KeepKeys:

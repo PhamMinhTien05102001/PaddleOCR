@@ -7,14 +7,14 @@ Global:
   save_model_dir: ./PaddleOCR/output/final_hard
   save_epoch_step: 1000
   eval_batch_step:
-  - 0
-  - 2500
+    - 0
+    - 2500
   cal_metric_during_train: true
   pretrained_model:
   save_inference_dir: null
   use_visualdl: false
   infer_img:
-  character_dict_path: resources/vi_chars.txt
+  character_dict_path: ppocr/utils/dict/vi_dict.txt
   max_text_length: 60
   infer_mode: false
   use_space_char: true
@@ -41,26 +41,26 @@ Architecture:
   Head:
     name: MultiHead
     head_list:
-    - CTCHead:
-        Neck:
-          name: svtr
-          dims: 120
-          depth: 2
-          hidden_dims: 120
-          kernel_size:
-          - 1
-          - 3
-          use_guide: true
-        Head:
-          fc_decay: 1.0e-05
-    - NRTRHead:
-        nrtr_dim: 384
-        max_text_length: 60
+      - CTCHead:
+          Neck:
+            name: svtr
+            dims: 120
+            depth: 2
+            hidden_dims: 120
+            kernel_size:
+              - 1
+              - 3
+            use_guide: true
+          Head:
+            fc_decay: 1.0e-05
+      - NRTRHead:
+          nrtr_dim: 384
+          max_text_length: 60
 Loss:
   name: MultiLoss
   loss_config_list:
-  - CTCLoss: null
-  - NRTRLoss: null
+    - CTCLoss: null
+    - NRTRLoss: null
 PostProcess:
   name: CTCLabelDecode
 Metric:
@@ -71,41 +71,41 @@ Train:
   dataset:
     name: MultiScaleDataSet
     ds_width: false
-    data_dir: ./
+    data_dir: ./train_data
     ext_op_transform_idx: 1
     label_file_list:
-    - /data/train_data/synthetic_train/labels.txt
+      - train_data/synthetic_train/labels.txt
     transforms:
-    - DecodeImage:
-        img_mode: BGR
-        channel_first: false
-    # - BWTransfer: null
-    - RandomShrink: null
-    - CusAug: null
-    - MultiLabelEncode:
-        gtc_encode: NRTRLabelEncode
-    - KeepKeys:
-        keep_keys:
-        - image
-        - label_ctc
-        - label_gtc
-        - length
-        - valid_ratio
+      - DecodeImage:
+          img_mode: BGR
+          channel_first: false
+      # - BWTransfer: null
+      # - RandomShrink: null
+      # - CusAug: null
+      - MultiLabelEncode:
+          gtc_encode: NRTRLabelEncode
+      - KeepKeys:
+          keep_keys:
+            - image
+            - label_ctc
+            - label_gtc
+            - length
+            - valid_ratio
   sampler:
     name: MultiScaleSampler
     scales:
-    - - 720
-      - 32
-    - - 720
-      - 48
-    - - 720
-      - 64
+      - - 720
+        - 32
+      - - 720
+        - 48
+      - - 720
+        - 64
     first_bs: 32
     max_w: 1080
     fix_bs: false
     divided_factor:
-    - 8
-    - 16
+      - 8
+      - 16
     is_training: true
   loader:
     shuffle: true
@@ -118,26 +118,26 @@ Eval:
     name: SimpleDataSet
     data_dir: ./train_data
     label_file_list:
-    - train_data/synthetic_valid/labels.txt
+      - train_data/synthetic_valid/labels.txt
     transforms:
-    - DecodeImage:
-        img_mode: BGR
-        channel_first: false
-    # - BWTransfer: null
-    - MultiLabelEncode:
-        gtc_encode: NRTRLabelEncode
-    - RecResizeImg:
-        image_shape:
-        - 3
-        - 48
-        - 720
-    - KeepKeys:
-        keep_keys:
-        - image
-        - label_ctc
-        - label_gtc
-        - length
-        - valid_ratio
+      - DecodeImage:
+          img_mode: BGR
+          channel_first: false
+      # - BWTransfer: null
+      - MultiLabelEncode:
+          gtc_encode: NRTRLabelEncode
+      - RecResizeImg:
+          image_shape:
+            - 3
+            - 48
+            - 720
+      - KeepKeys:
+          keep_keys:
+            - image
+            - label_ctc
+            - label_gtc
+            - length
+            - valid_ratio
   loader:
     shuffle: false
     drop_last: false

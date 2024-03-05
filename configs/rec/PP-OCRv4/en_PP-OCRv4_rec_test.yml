@@ -55,7 +55,7 @@ Architecture:
             fc_decay: 1.0e-05
       - NRTRHead:
           nrtr_dim: 384
-          max_text_length: 25
+          max_text_length: 60
 Loss:
   name: MultiLoss
   loss_config_list:

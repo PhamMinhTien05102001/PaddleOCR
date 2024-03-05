@@ -3,12 +3,10 @@ Global:
   use_gpu: true
   epoch_num: 3
   log_smooth_window: 20
-  print_batch_step: 500
+  print_batch_step: 10
   save_model_dir: ./PaddleOCR/output/final_hard
-  save_epoch_step: 1000
-  eval_batch_step:
-    - 0
-    - 2500
+  save_epoch_step: 157
+  eval_batch_step: [0, 157]
   cal_metric_during_train: true
   pretrained_model:
   save_inference_dir: null

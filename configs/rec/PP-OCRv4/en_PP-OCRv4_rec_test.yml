@@ -119,6 +119,7 @@ Train:
     batch_size_per_card: 96
     drop_last: true
     num_workers: 8
+    use_shared_memory: False
 Eval:
   dataset:
     name: SimpleDataSet
@@ -148,4 +149,5 @@ Eval:
     drop_last: false
     batch_size_per_card: 128
     num_workers: 4
+    use_shared_memory: False
 profiler_options: null

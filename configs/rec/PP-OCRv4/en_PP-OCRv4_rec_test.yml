@@ -37,7 +37,7 @@ Architecture:
   Transform: null
   Backbone:
     name: PPLCNetV3
-    scale: 0.95
+    scale: 2.0
   Head:
     name: MultiHead
     head_list:

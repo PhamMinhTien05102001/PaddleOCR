@@ -78,7 +78,7 @@ Train:
           img_mode: BGR
           channel_first: false
       # - BWTransfer: null
-      - RandomShrink: null
+      # - RandomShrink: null
       - CusAug: null
       - MultiLabelEncode:
           gtc_encode: NRTRLabelEncode

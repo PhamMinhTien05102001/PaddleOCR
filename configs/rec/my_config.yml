@@ -72,7 +72,7 @@ Train:
     data_dir: ./train_data
     ext_op_transform_idx: 1
     label_file_list:
-      - synthetic_train/labels.txt
+      - train_data/synthetic_train/labels.txt
     transforms:
       - DecodeImage:
           img_mode: BGR
@@ -116,7 +116,7 @@ Eval:
     name: SimpleDataSet
     data_dir: ./train_data
     label_file_list:
-      - synthetic_valid/labels.txt
+      - train_data/synthetic_valid/labels.txt
     transforms:
       - DecodeImage:
           img_mode: BGR

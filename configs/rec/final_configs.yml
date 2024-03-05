@@ -7,8 +7,8 @@ Global:
   save_model_dir: ./PaddleOCR/output/final_kalapa
   save_epoch_step: 10
   eval_batch_step:
-  - 0
-  - 1881
+    - 0
+    - 1881
   cal_metric_during_train: true
   pretrained_model: ./PaddleOCR/output/final_hard/best_accuracy
   # checkpoints:
@@ -42,26 +42,26 @@ Architecture:
   Head:
     name: MultiHead
     head_list:
-    - CTCHead:
-        Neck:
-          name: svtr
-          dims: 120
-          depth: 2
-          hidden_dims: 120
-          kernel_size:
-          - 1
-          - 3
-          use_guide: true
-        Head:
-          fc_decay: 1.0e-05
-    - NRTRHead:
-        nrtr_dim: 384
-        max_text_length: 60
+      - CTCHead:
+          Neck:
+            name: svtr
+            dims: 120
+            depth: 2
+            hidden_dims: 120
+            kernel_size:
+              - 1
+              - 3
+            use_guide: true
+          Head:
+            fc_decay: 1.0e-05
+      - NRTRHead:
+          nrtr_dim: 384
+          max_text_length: 60
 Loss:
   name: MultiLoss
   loss_config_list:
-  - CTCLoss: null
-  - NRTRLoss: null
+    - CTCLoss: null
+    - NRTRLoss: null
 PostProcess:
   name: CTCLabelDecode
 Metric:
@@ -75,47 +75,47 @@ Train:
     data_dir: .
     ext_op_transform_idx: 1
     label_file_list:
-    - train_data/kalapa_train_resplit/labels.txt
-    - train_data/kalapa_test/labels.txt
-    - train_data/train_erase/labels.txt
-    - train_data/split_datasets/splited_words/labels.txt
-    - train_data/jointed_data/labels.txt
-    - train_data/level_2/train/labels.txt
-    - train_data/level_2/test/labels.txt
-    - train_data/level_3/train/labels.txt
-    - train_data/level_3/test/labels.txt
+      - train_data/kalapa_train_resplit/labels.txt
+      - train_data/kalapa_test/labels.txt
+      - train_data/train_erase/labels.txt
+      - train_data/split_datasets/splited_words/labels.txt
+      - train_data/jointed_data/labels.txt
+      - train_data/level_2/train/labels.txt
+      - train_data/level_2/test/labels.txt
+      - train_data/level_3/train/labels.txt
+      - train_data/level_3/test/labels.txt
     ratio_list: [1.0, 1.0, 1.0, 0.05, 0.004, 0.075, 0.075, 0.085, 0.085]
     transforms:
-    - DecodeImage:
-        img_mode: BGR
-        channel_first: false
-    - RandomShrink: null
-    - BWTransfer: null
-    - CusAug: null
-    - MultiLabelEncode:
-        gtc_encode: NRTRLabelEncode
-    - KeepKeys:
-        keep_keys:
-        - image
-        - label_ctc
-        - label_gtc
-        - length
-        - valid_ratio
+      - DecodeImage:
+          img_mode: BGR
+          channel_first: false
+      - RandomShrink: null
+      - BWTransfer: null
+      - CusAug: null
+      - MultiLabelEncode:
+          gtc_encode: NRTRLabelEncode
+      - KeepKeys:
+          keep_keys:
+            - image
+            - label_ctc
+            - label_gtc
+            - length
+            - valid_ratio
   sampler:
     name: MultiScaleSampler
     scales:
-    - - 720
-      - 32
-    - - 720
-      - 48
-    - - 720
-      - 64
+      - - 720
+        - 32
+      - - 720
+        - 48
+      - - 720
+        - 64
     first_bs: 32
     max_w: 1080
     fix_bs: false
     divided_factor:
-    - 8
-    - 16
+      - 8
+      - 16
     is_training: true
   loader:
     shuffle: true
@@ -128,29 +128,29 @@ Eval:
     name: SimpleDataSet
     data_dir: ./
     label_file_list:
-    - train_data/kalapa_valid_resplit/labels.txt
-    - train_data/level_2/valid/labels.txt
-    - train_data/level_3/valid/labels.txt
+      - train_data/kalapa_valid_resplit/labels.txt
+      - train_data/level_2/valid/labels.txt
+      - train_data/level_3/valid/labels.txt
     ratio_list: [5.0, 0.25, 0.25]
     transforms:
-    - DecodeImage:
-        img_mode: BGR
-        channel_first: false
-    - BWTransfer: null
-    - MultiLabelEncode:
-        gtc_encode: NRTRLabelEncode
-    - RecResizeImg:
-        image_shape:
-        - 3
-        - 48
-        - 720
-    - KeepKeys:
-        keep_keys:
-        - image
-        - label_ctc
-        - label_gtc
-        - length
-        - valid_ratio
+      - DecodeImage:
+          img_mode: BGR
+          channel_first: false
+      - BWTransfer: null
+      - MultiLabelEncode:
+          gtc_encode: NRTRLabelEncode
+      - RecResizeImg:
+          image_shape:
+            - 3
+            - 48
+            - 720
+      - KeepKeys:
+          keep_keys:
+            - image
+            - label_ctc
+            - label_gtc
+            - length
+            - valid_ratio
   loader:
     shuffle: false
     drop_last: false

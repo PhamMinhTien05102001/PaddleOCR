@@ -1,14 +1,14 @@
 Global:
   debug: false
   use_gpu: true
-  epoch_num: 50
+  epoch_num: 3
   log_smooth_window: 20
   print_batch_step: 10
-  save_model_dir: ./output/rec_ppocr_v4
-  save_epoch_step: 10
+  save_model_dir: ./PaddleOCR/output/final_hard
+  save_epoch_step: 1000
   eval_batch_step:
     - 0
-    - 2000
+    - 2500
   cal_metric_during_train: true
   pretrained_model:
   save_inference_dir: null

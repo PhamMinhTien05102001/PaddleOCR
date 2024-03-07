@@ -114,9 +114,9 @@ Train:
 Eval:
   dataset:
     name: SimpleDataSet
-    data_dir: ./data_ocr
+    data_dir: ./data-ocr
     label_file_list:
-      - data_ocr/test/labels.txt
+      - data-ocr/test/labels.txt
     transforms:
       - DecodeImage:
           img_mode: BGR

@@ -66,7 +66,7 @@ Train:
     name: SimpleDataSet
     data_dir: .
     label_file_list:
-      - ./train_data_so_do/train_label.txt
+      - ./train_data_so_do_1/train_label.txt
       - ./train_data_so_do_2/train_label.txt
       - ./train_data_so_do_3/train_label.txt
       - ./train_data_so_do_4/train_label.txt
@@ -124,7 +124,7 @@ Eval:
     name: SimpleDataSet
     data_dir: .
     label_file_list:
-      - ./train_data_so_do/test_label.txt
+      - ./train_data_so_do_1/test_label.txt
       - ./train_data_so_do_2/test_label.txt
       - ./train_data_so_do_3/test_label.txt
       - ./train_data_so_do_4/test_label.txt

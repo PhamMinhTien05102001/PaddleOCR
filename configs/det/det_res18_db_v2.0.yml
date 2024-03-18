@@ -4,11 +4,11 @@ Global:
   log_smooth_window: 20
   print_batch_step: 10
   save_model_dir: ./output/ch_db_res18/
-  save_epoch_step: 1200
+  save_epoch_step: 1
   # evaluation is run every 5000 iterations after the 4000th iteration
-  eval_batch_step: [0, 113]
+  eval_batch_step: [0, 2000]
   cal_metric_during_train: False
-  pretrained_model: ./pretrain_models/ResNet18_vd_pretrained
+  pretrained_model: ./pretrain_models/best_accuracy_ouput_8
   checkpoints:
   save_inference_dir:
   use_visualdl: False
@@ -67,6 +67,9 @@ Train:
     data_dir: ./train_data_so_do
     label_file_list:
       - ./train_data_so_do/train_label.txt
+      - ./train_data_so_do_2/train_label.txt
+      - ./train_data_so_do_3/train_label.txt
+      - ./train_data_so_do_4/train_label.txt
     ratio_list: [1.0]
     transforms:
       - DecodeImage: # load image
@@ -122,6 +125,9 @@ Eval:
     data_dir: ./train_data_so_do
     label_file_list:
       - ./train_data_so_do/test_label.txt
+      - ./train_data_so_do_2/test_label.txt
+      - ./train_data_so_do_3/test_label.txt
+      - ./train_data_so_do_4/test_label.txt
     transforms:
       - DecodeImage: # load image
           img_mode: BGR

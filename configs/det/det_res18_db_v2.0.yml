@@ -8,7 +8,7 @@ Global:
   # evaluation is run every 5000 iterations after the 4000th iteration
   eval_batch_step: [0, 2000]
   cal_metric_during_train: False
-  pretrained_model: ./pretrain_models/best_accuracy_ouput_8
+  pretrained_model: ./pretrain_models/best_accuracy_out_5_folder
   checkpoints:
   save_inference_dir:
   use_visualdl: False

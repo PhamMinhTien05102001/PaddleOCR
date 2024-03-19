@@ -2,11 +2,11 @@ Global:
   use_gpu: true
   epoch_num: 1200
   log_smooth_window: 20
-  print_batch_step: 10
+  print_batch_step: 20
   save_model_dir: ./output/ch_db_res18/
-  save_epoch_step: 1
+  save_epoch_step: 2250
   # evaluation is run every 5000 iterations after the 4000th iteration
-  eval_batch_step: [0, 2000]
+  eval_batch_step: [0, 2250]
   cal_metric_during_train: False
   pretrained_model: ./pretrain_models/best_accuracy_ouput_8
   checkpoints:
@@ -70,6 +70,7 @@ Train:
       - ./train_data_so_do_2/train_label.txt
       - ./train_data_so_do_3/train_label.txt
       - ./train_data_so_do_4/train_label.txt
+      - ./train_data_so_do_5/train_label.txt
     ratio_list: [1.0, 1.0, 1.0, 1.0]
     transforms:
       - DecodeImage: # load image
@@ -128,6 +129,7 @@ Eval:
       - ./train_data_so_do_2/test_label.txt
       - ./train_data_so_do_3/test_label.txt
       - ./train_data_so_do_4/test_label.txt
+      - ./train_data_so_do_5/test_label.txt
     transforms:
       - DecodeImage: # load image
           img_mode: BGR

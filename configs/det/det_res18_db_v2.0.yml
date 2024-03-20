@@ -4,11 +4,11 @@ Global:
   log_smooth_window: 20
   print_batch_step: 20
   save_model_dir: ./output/ch_db_res18/
-  save_epoch_step: 2000
+  save_epoch_step: 1000
   # evaluation is run every 5000 iterations after the 4000th iteration
-  eval_batch_step: [0, 2000]
+  eval_batch_step: [0, 1000]
   cal_metric_during_train: False
-  pretrained_model: ./pretrain_models/best_accuracy_out_5_folder
+  pretrained_model: ./pretrain_models/best_acc_6_1
   checkpoints:
   save_inference_dir:
   use_visualdl: False

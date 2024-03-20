@@ -66,13 +66,8 @@ Train:
     name: SimpleDataSet
     data_dir: .
     label_file_list:
-      - ./train_data_so_do_1/train_label.txt
-      - ./train_data_so_do_2/train_label.txt
-      - ./train_data_so_do_3/train_label.txt
-      - ./train_data_so_do_4/train_label.txt
-      - ./train_data_so_do_5/train_label.txt
-      - ./train_data_so_do_6/train_label.txt
-    ratio_list: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+      - ./train_label_all.txt
+    ratio_list: [1.0]
     transforms:
       - DecodeImage: # load image
           img_mode: BGR
@@ -126,12 +121,7 @@ Eval:
     name: SimpleDataSet
     data_dir: .
     label_file_list:
-      - ./train_data_so_do_1/test_label.txt
-      - ./train_data_so_do_2/test_label.txt
-      - ./train_data_so_do_3/test_label.txt
-      - ./train_data_so_do_4/test_label.txt
-      - ./train_data_so_do_5/test_label.txt
-      - ./train_data_so_do_6/test_label.txt
+      - ./test_label_all.txt
     transforms:
       - DecodeImage: # load image
           img_mode: BGR

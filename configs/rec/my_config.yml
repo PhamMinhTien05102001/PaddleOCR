@@ -1,19 +1,19 @@
 Global:
   debug: false
   use_gpu: true
-  epoch_num: 3
+  epoch_num: 20
   log_smooth_window: 20
-  print_batch_step: 10
+  print_batch_step: 50
   save_model_dir: ./PaddleOCR/output/final_hard
-  save_epoch_step: 1
-  eval_batch_step: [0, 312]
+  save_epoch_step: 10
+  eval_batch_step: [0, 5231]
   cal_metric_during_train: true
   pretrained_model:
   save_inference_dir: null
   use_visualdl: false
   infer_img:
   character_dict_path: ppocr/utils/dict/vi_dict_train.txt
-  max_text_length: 80
+  max_text_length: 60
   infer_mode: false
   use_space_char: true
   distributed: true
@@ -53,7 +53,7 @@ Architecture:
             fc_decay: 1.0e-05
       - NRTRHead:
           nrtr_dim: 384
-          max_text_length: 80
+          max_text_length: 60
 Loss:
   name: MultiLoss
   loss_config_list:
@@ -69,10 +69,20 @@ Train:
   dataset:
     name: MultiScaleDataSet
     ds_width: false
-    data_dir: ./data-ocr
+    data_dir: ./data_ocr
     ext_op_transform_idx: 1
     label_file_list:
-      - data-ocr/train/labels.txt
+      - data_ocr/1st_kalapa_ocr_train_label.txt
+      - data_ocr/InkData_line_processed_label.txt
+      - data_ocr/Level2_samples_label.txt
+      - data_ocr/Level3_samples_label.txt
+      - data_ocr/private_test_label.txt
+      - data_ocr/vn_handwritten_images_label.txt
+      - data_ocr/level_3/test/labels.txt
+      - data_ocr/level_3/train/labels.txt
+      - data_ocr/level_2/tetst/labels.txt
+      - data_ocr/level_2/train/labels.txt
+      - data_ocr/jointed_data/labels.txt
     transforms:
       - DecodeImage:
           img_mode: BGR
@@ -92,11 +102,11 @@ Train:
   sampler:
     name: MultiScaleSampler
     scales:
-      - - 864
+      - - 720
         - 32
-      - - 864
+      - - 720
         - 48
-      - - 864
+      - - 720
         - 64
     first_bs: 32
     max_w: 1080
@@ -114,9 +124,11 @@ Train:
 Eval:
   dataset:
     name: SimpleDataSet
-    data_dir: ./data-ocr
+    data_dir: ./data_ocr
     label_file_list:
-      - data-ocr/test/labels.txt
+      - data_ocr/public_test_label.txt
+      - data_ocr/level_2/valid/labels.txt
+      - data_ocr/level_3/valid/labels.txt
     transforms:
       - DecodeImage:
           img_mode: BGR
@@ -128,7 +140,7 @@ Eval:
           image_shape:
             - 3
             - 48
-            - 864
+            - 720
       - KeepKeys:
           keep_keys:
             - image

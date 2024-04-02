@@ -6,7 +6,7 @@ Global:
   print_batch_step: 50
   save_model_dir: ./PaddleOCR/output/final_hard
   save_epoch_step: 10
-  eval_batch_step: [0, 5231]
+  eval_batch_step: [0, 7110]
   cal_metric_during_train: true
   pretrained_model: ./pretrain_models/best_accuracy_1st
   save_inference_dir: null
@@ -80,7 +80,7 @@ Train:
       - data_ocr/vn_handwritten_images_label.txt
       - data_ocr/level_3/test/labels.txt
       - data_ocr/level_3/train/labels.txt
-      - data_ocr/level_2/tetst/labels.txt
+      - data_ocr/level_2/test/labels.txt
       - data_ocr/level_2/train/labels.txt
       - data_ocr/jointed_data/labels.txt
     transforms:

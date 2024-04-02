@@ -6,7 +6,7 @@ Global:
   print_batch_step: 50
   save_model_dir: ./PaddleOCR/output/final_hard
   save_epoch_step: 10
-  eval_batch_step: [0, 7110]
+  eval_batch_step: [0, 7269]
   cal_metric_during_train: true
   pretrained_model: ./pretrain_models/best_accuracy_1st
   save_inference_dir: null
@@ -35,7 +35,7 @@ Architecture:
   Transform: null
   Backbone:
     name: PPLCNetV3
-    scale: 0.95
+    scale: 1.5
   Head:
     name: MultiHead
     head_list:
@@ -69,20 +69,20 @@ Train:
   dataset:
     name: MultiScaleDataSet
     ds_width: false
-    data_dir: ./data_ocr
+    data_dir: /kaggle/input/d/tinphmminh/train-ocr/
     ext_op_transform_idx: 1
     label_file_list:
-      - data_ocr/1st_kalapa_ocr_train_label.txt
-      - data_ocr/InkData_line_processed_label.txt
-      - data_ocr/Level2_samples_label.txt
-      - data_ocr/Level3_samples_label.txt
-      - data_ocr/private_test_label.txt
-      - data_ocr/vn_handwritten_images_label.txt
-      - data_ocr/level_3/test/labels.txt
-      - data_ocr/level_3/train/labels.txt
-      - data_ocr/level_2/test/labels.txt
-      - data_ocr/level_2/train/labels.txt
-      - data_ocr/jointed_data/labels.txt
+      - /kaggle/input/d/tinphmminh/train-ocr/1st_kalapa_ocr_train_label.txt
+      - /kaggle/input/d/tinphmminh/train-ocr/InkData_line_processed_label.txt
+      - /kaggle/input/d/tinphmminh/train-ocr/Level2_samples_label.txt
+      - /kaggle/input/d/tinphmminh/train-ocr/Level3_samples_label.txt
+      - /kaggle/input/d/tinphmminh/train-ocr/private_test_label.txt
+      - /kaggle/input/d/tinphmminh/train-ocr/vn_handwritten_images_label.txt
+      - /kaggle/input/d/tinphmminh/train-ocr/level_3/test/labels.txt
+      - /kaggle/input/d/tinphmminh/train-ocr/level_3/train/labels.txt
+      - /kaggle/input/d/tinphmminh/train-ocr/level_2/test/labels.txt
+      - /kaggle/input/d/tinphmminh/train-ocr/level_2/train/labels.txt
+      - /kaggle/input/d/tinphmminh/train-ocr/jointed_data/labels.txt
     transforms:
       - DecodeImage:
           img_mode: BGR
@@ -124,11 +124,11 @@ Train:
 Eval:
   dataset:
     name: SimpleDataSet
-    data_dir: ./data_ocr
+    data_dir: /kaggle/input/d/tinphmminh/train-ocr
     label_file_list:
-      - data_ocr/public_test_label.txt
-      - data_ocr/level_2/valid/labels.txt
-      - data_ocr/level_3/valid/labels.txt
+      - /kaggle/input/d/tinphmminh/train-ocr/public_test_label.txt
+      - /kaggle/input/d/tinphmminh/train-ocr/level_2/valid/labels.txt
+      - /kaggle/input/d/tinphmminh/train-ocr/level_3/valid/labels.txt
     transforms:
       - DecodeImage:
           img_mode: BGR

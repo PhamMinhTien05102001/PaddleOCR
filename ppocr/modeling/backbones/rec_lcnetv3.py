@@ -485,7 +485,8 @@ class PPLCNetV3(nn.Layer):
             return out_list
 
         if self.training:
-            x = F.avg_pool2d(x, [3, 1])
+            x = F.adaptive_avg_pool2d(x, [1, 40])
         else:
-            x = F.avg_pool2d(x, [3, 1])
+            x = F.avg_pool2d(x, [3, 2])
+            
         return x

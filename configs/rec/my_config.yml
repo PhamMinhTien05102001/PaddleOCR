@@ -4,7 +4,7 @@ Global:
   epoch_num: 20
   log_smooth_window: 20
   print_batch_step: 50
-  save_model_dir: ./PaddleOCR/output/final_hard
+  save_model_dir: ./output/final_hard
   save_epoch_step: 10
   eval_batch_step: [0, 7269]
   cal_metric_during_train: true

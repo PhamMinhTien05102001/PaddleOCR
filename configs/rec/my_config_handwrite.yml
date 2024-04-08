@@ -1,12 +1,12 @@
 Global:
   debug: false
   use_gpu: true
-  epoch_num: 20
+  epoch_num: 100
   log_smooth_window: 20
-  print_batch_step: 50
+  print_batch_step: 1
   save_model_dir: ./output/final_hard
   save_epoch_step: 10
-  eval_batch_step: [0, 13]
+  eval_batch_step: [0, 6]
   cal_metric_during_train: true
   pretrained_model: ./pretrain_models/ocr_new_data_3epoch
   save_inference_dir: null
@@ -23,19 +23,17 @@ Optimizer:
   beta1: 0.9
   beta2: 0.999
   lr:
-    name: Cosine
     learning_rate: 0.001
-    warmup_epoch: 1
   regularizer:
     name: L2
-    factor: 3.0e-05
+    factor: 0
 Architecture:
   model_type: rec
   algorithm: SVTR_LCNet
   Transform: null
   Backbone:
     name: PPLCNetV3
-    scale: 1.5
+    scale: 0.95
   Head:
     name: MultiHead
     head_list:

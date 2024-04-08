@@ -84,6 +84,8 @@ Train:
       - /kaggle/input/d/tinphmminh/train-ocr/level_2/train/labels.txt
       - /kaggle/input/d/tinphmminh/train-ocr/jointed_data/labels.txt
       - /kaggle/input/d/tinphmminh/train-ocr/Handwrite_data_train_label.txt
+    ratio_list:
+      [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05]
     transforms:
       - DecodeImage:
           img_mode: BGR

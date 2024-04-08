@@ -83,6 +83,7 @@ Train:
       - /kaggle/input/d/tinphmminh/train-ocr/level_2/test/labels.txt
       - /kaggle/input/d/tinphmminh/train-ocr/level_2/train/labels.txt
       - /kaggle/input/d/tinphmminh/train-ocr/jointed_data/labels.txt
+      - /kaggle/input/d/tinphmminh/train-ocr/Handwrite_data_train_label.txt
     transforms:
       - DecodeImage:
           img_mode: BGR
@@ -126,9 +127,10 @@ Eval:
     name: SimpleDataSet
     data_dir: /kaggle/input/d/tinphmminh/train-ocr
     label_file_list:
-      - /kaggle/input/d/tinphmminh/train-ocr/public_test_label.txt
-      - /kaggle/input/d/tinphmminh/train-ocr/level_2/valid/labels.txt
-      - /kaggle/input/d/tinphmminh/train-ocr/level_3/valid/labels.txt
+      # - /kaggle/input/d/tinphmminh/train-ocr/public_test_label.txt
+      # - /kaggle/input/d/tinphmminh/train-ocr/level_2/valid/labels.txt
+      # - /kaggle/input/d/tinphmminh/train-ocr/level_3/valid/labels.txt
+      - /kaggle/input/d/tinphmminh/train-ocr/Handwrite_data_test_label.txt
     transforms:
       - DecodeImage:
           img_mode: BGR

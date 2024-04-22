@@ -4,9 +4,9 @@ Global:
   log_smooth_window: 20
   print_batch_step: 20
   save_model_dir: ./output/ch_db_res18/
-  save_epoch_step: 625
+  save_epoch_step: 750
   # evaluation is run every 5000 iterations after the 4000th iteration
-  eval_batch_step: [0, 625]
+  eval_batch_step: [0, 750]
   cal_metric_during_train: False
   pretrained_model: ./pretrain_models/train_word_machine
   checkpoints:
@@ -62,9 +62,9 @@ Metric:
 Train:
   dataset:
     name: SimpleDataSet
-    data_dir: .
+    data_dir: /kaggle/input/data-text-detection/
     label_file_list:
-      - ./train_label_all.txt
+      - /kaggle/input/data_text_detection/train_label_all.txt
     ratio_list: [1.0]
     transforms:
       - DecodeImage: # load image
@@ -117,9 +117,9 @@ Train:
 Eval:
   dataset:
     name: SimpleDataSet
-    data_dir: .
+    data_dir: /kaggle/input/data-text-detection/
     label_file_list:
-      - ./test_label_all.txt
+      - /kaggle/input/data-text-detection/test_label_all.txt
     transforms:
       - DecodeImage: # load image
           img_mode: BGR

@@ -62,9 +62,7 @@ Metric:
 Train:
   dataset:
     name: SimpleDataSet
-    ds_width: false
     data_dir: /kaggle/input/data-text-detection/
-    ext_op_transform_idx: 1
     label_file_list:
       - /kaggle/input/data-text-detection/train_label_all.txt
     ratio_list: [1.0]

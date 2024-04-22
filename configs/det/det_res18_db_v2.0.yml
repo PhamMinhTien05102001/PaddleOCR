@@ -62,9 +62,9 @@ Metric:
 Train:
   dataset:
     name: SimpleDataSet
-    data_dir: /kaggle/input/data-text-detection/
+    data_dir: /kaggle/input/d/tinphmminh/data-text-detection/
     label_file_list:
-      - /kaggle/input/data-text-detection/train_label_all.txt
+      - /kaggle/input/d/tinphmminh/data-text-detection/train_label_all.txt
     ratio_list: [1.0]
     transforms:
       - DecodeImage: # load image
@@ -117,9 +117,9 @@ Train:
 Eval:
   dataset:
     name: SimpleDataSet
-    data_dir: /kaggle/input/data-text-detection/
+    data_dir: /kaggle/input/d/tinphmminh/data-text-detection
     label_file_list:
-      - /kaggle/input/data-text-detection/test_label_all.txt
+      - /kaggle/input/d/tinphmminh/data-text-detection/test_label_all.txt
     transforms:
       - DecodeImage: # load image
           img_mode: BGR

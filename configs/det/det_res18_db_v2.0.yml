@@ -64,7 +64,7 @@ Train:
     name: SimpleDataSet
     data_dir: /kaggle/input/data-text-detection/
     label_file_list:
-      - /kaggle/input/data_text_detection/train_label_all.txt
+      - /kaggle/input/data-text-detection/train_label_all.txt
     ratio_list: [1.0]
     transforms:
       - DecodeImage: # load image

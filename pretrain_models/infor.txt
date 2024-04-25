@@ -1,1 +1,2 @@
 model_det_23_04_epoch_2 --> Model ở đợt train thứ 3 (epoch số 2)
+model_det_24_04_epoch_4 --> Model ở đợt train thứ 3 (epoch số 4)
